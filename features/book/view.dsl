@@ -2,7 +2,7 @@ dynamic mobile {
     title "Book"
 
     user -> mobileBookPage 
-    mobileBookPage -> bookController 
+    // mobileBookPage -> bookController 
     bookController -> database
 
     autolayout lr

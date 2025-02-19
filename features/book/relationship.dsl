@@ -1,3 +1,3 @@
 user -> mobileBookPage 
-mobileBookPage -> bookController 
+// mobileBookPage -> bookController 
 bookController -> database
