@@ -3,7 +3,11 @@ dynamic mobile {
 
     user -> mobileBookPage 
     // mobileBookPage -> bookController 
-    bookController -> database
+   // bookController -> database
+   superAdmin -> web
+    superAdmin -> database
+    superAdmin -> backend
+    backend -> database
 
     autolayout lr
 }
