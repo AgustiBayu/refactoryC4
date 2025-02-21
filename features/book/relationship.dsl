@@ -1,7 +1,20 @@
-user -> mobileBookPage 
-superAdmin -> web
-superAdmin -> database
-superAdmin -> backend
+superAdmin -> mobileBookPage
+superAdmin -> webBookPage
+mobileBookPage -> apiBookPage
+webBookPage -> apiBookPage
+apiBookPage -> backend
 backend -> database
-// mobileBookPage -> bookController 
-// bookController -> database
+bookController -> database
+doctor -> mobileBookPage
+admin -> webBookPage
+user -> mobileBookPage 
+admin -> mobileBookPage
+bookController -> payBookPage
+bookController -> notifBookPage
+notifBookPage -> superAdmin
+notifBookPage -> admin
+notifBookPage -> doctor
+notifBookPage -> user
+
+apiBookPage -> bookController
+bookController -> bookTable

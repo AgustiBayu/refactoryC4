@@ -1,13 +1,22 @@
 dynamic mobile {
     title "Book"
 
-    user -> mobileBookPage 
-    // mobileBookPage -> bookController 
-   // bookController -> database
-   superAdmin -> web
-    superAdmin -> database
-    superAdmin -> backend
-    backend -> database
+    webBookPage -> apiBookPage
+    mobileBookPage -> apiBookPage
+    apiBookPage -> bookController
+    bookController -> bookTable
+
+    apiBookPage -> controllBookPage
+    apiBookPage -> serviceBookPage
+    apiBookPage -> repositoryBookPage
+
+    bookController -> authService
+    bookController -> notifService
+    bookController -> paymentService
+
+    bookTable -> userTable
+    bookTable -> paymentTable
+    bookTable -> bookingTable
 
     autolayout lr
 }
