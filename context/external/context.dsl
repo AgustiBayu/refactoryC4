@@ -1,6 +1,4 @@
-// Add your external system here
-// For example:
-// email = softwareSystem "Email" {
-//     description = "The email system"
-//     tag "External System"
-// }
+payment = softwareSystem "Payment System" {
+    description "Sistem pembayaran pihak ketiga yang terintegrasi dengan Medpoint System"
+    tag "External System"
+}

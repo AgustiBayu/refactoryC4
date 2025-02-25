@@ -4,7 +4,7 @@
   "documentation" : { },
   "id" : 1,
   "lastModifiedAgent" : "structurizr-ui",
-  "lastModifiedDate" : "2025-02-25T01:34:00Z",
+  "lastModifiedDate" : "2025-02-25T11:45:04Z",
   "model" : {
     "people" : [ {
       "description" : "Mengelola semua data master dan hak akses pengguna",
@@ -14,6 +14,25 @@
       "properties" : {
         "structurizr.dsl.identifier" : "superadmin"
       },
+      "relationships" : [ {
+        "description" : "Manage doctor data using",
+        "destinationId" : "10",
+        "id" : "38",
+        "sourceId" : "1",
+        "tags" : "Relationship"
+      }, {
+        "description" : "Manage doctor data using",
+        "destinationId" : "9",
+        "id" : "39",
+        "linkedRelationshipId" : "38",
+        "sourceId" : "1"
+      }, {
+        "description" : "Manage doctor data using",
+        "destinationId" : "5",
+        "id" : "40",
+        "linkedRelationshipId" : "38",
+        "sourceId" : "1"
+      } ],
       "tags" : "Element,Person"
     }, {
       "description" : "Mengelola data master, jadwal, slot reservasi, dan pembayaran",
@@ -23,6 +42,25 @@
       "properties" : {
         "structurizr.dsl.identifier" : "admin"
       },
+      "relationships" : [ {
+        "description" : "Manage master data Faskes using",
+        "destinationId" : "11",
+        "id" : "48",
+        "sourceId" : "2",
+        "tags" : "Relationship"
+      }, {
+        "description" : "Manage master data Faskes using",
+        "destinationId" : "9",
+        "id" : "49",
+        "linkedRelationshipId" : "48",
+        "sourceId" : "2"
+      }, {
+        "description" : "Manage master data Faskes using",
+        "destinationId" : "5",
+        "id" : "50",
+        "linkedRelationshipId" : "48",
+        "sourceId" : "2"
+      } ],
       "tags" : "Element,Person"
     }, {
       "description" : "Menggunakan aplikasi untuk berbagai keperluan",
@@ -33,19 +71,22 @@
         "structurizr.dsl.identifier" : "user"
       },
       "relationships" : [ {
+        "description" : "Make payments using",
         "destinationId" : "7",
-        "id" : "14",
+        "id" : "23",
         "sourceId" : "3",
         "tags" : "Relationship"
       }, {
+        "description" : "Make payments using",
         "destinationId" : "6",
-        "id" : "15",
-        "linkedRelationshipId" : "14",
+        "id" : "24",
+        "linkedRelationshipId" : "23",
         "sourceId" : "3"
       }, {
+        "description" : "Make payments using",
         "destinationId" : "5",
-        "id" : "16",
-        "linkedRelationshipId" : "14",
+        "id" : "25",
+        "linkedRelationshipId" : "23",
         "sourceId" : "3"
       } ],
       "tags" : "Element,Person"
@@ -57,30 +98,75 @@
       "properties" : {
         "structurizr.dsl.identifier" : "doctor"
       },
+      "relationships" : [ {
+        "description" : "Provide reservation using",
+        "destinationId" : "8",
+        "id" : "57",
+        "sourceId" : "4",
+        "tags" : "Relationship"
+      }, {
+        "description" : "Provide reservation using",
+        "destinationId" : "6",
+        "id" : "58",
+        "linkedRelationshipId" : "57",
+        "sourceId" : "4"
+      }, {
+        "description" : "Provide reservation using",
+        "destinationId" : "5",
+        "id" : "59",
+        "linkedRelationshipId" : "57",
+        "sourceId" : "4"
+      } ],
       "tags" : "Element,Person"
     } ],
     "softwareSystems" : [ {
       "containers" : [ {
         "components" : [ {
-          "description" : "Book page for the mobile app.",
+          "description" : "Payment page for the mobile app.",
           "documentation" : { },
           "id" : "7",
-          "name" : "Mobile application",
+          "name" : "Payment Page",
           "properties" : {
-            "structurizr.dsl.identifier" : "mobilebookpage"
+            "structurizr.dsl.identifier" : "mobilepaymentpage"
           },
           "relationships" : [ {
-            "destinationId" : "11",
-            "id" : "17",
+            "description" : "Make API calls to [JSON/HTTPS]",
+            "destinationId" : "13",
+            "id" : "26",
             "sourceId" : "7",
             "tags" : "Relationship"
           }, {
-            "destinationId" : "10",
-            "id" : "18",
-            "linkedRelationshipId" : "17",
+            "description" : "Make API calls to [JSON/HTTPS]",
+            "destinationId" : "12",
+            "id" : "27",
+            "linkedRelationshipId" : "26",
             "sourceId" : "7"
           } ],
-          "tags" : "Element,Component"
+          "tags" : "Element,Component",
+          "technology" : "Dart and Flutter"
+        }, {
+          "description" : "Provide reservation page for the mobile app.",
+          "documentation" : { },
+          "id" : "8",
+          "name" : "Provide Reservation Page",
+          "properties" : {
+            "structurizr.dsl.identifier" : "mobileprovidereservationpage"
+          },
+          "relationships" : [ {
+            "description" : "Make API calls to [JSON/HTTPS]",
+            "destinationId" : "16",
+            "id" : "60",
+            "sourceId" : "8",
+            "tags" : "Relationship"
+          }, {
+            "description" : "Make API calls to [JSON/HTTPS]",
+            "destinationId" : "12",
+            "id" : "61",
+            "linkedRelationshipId" : "60",
+            "sourceId" : "8"
+          } ],
+          "tags" : "Element,Component",
+          "technology" : "Dart and Flutter"
         } ],
         "description" : "The mobile app for the C4 taks project.",
         "documentation" : { },
@@ -90,84 +176,292 @@
           "structurizr.dsl.identifier" : "mobile"
         },
         "relationships" : [ {
-          "destinationId" : "11",
-          "id" : "19",
-          "linkedRelationshipId" : "17",
+          "description" : "Make API calls to [JSON/HTTPS]",
+          "destinationId" : "13",
+          "id" : "28",
+          "linkedRelationshipId" : "26",
           "sourceId" : "6"
         }, {
-          "destinationId" : "10",
-          "id" : "20",
-          "linkedRelationshipId" : "17",
+          "description" : "Make API calls to [JSON/HTTPS]",
+          "destinationId" : "12",
+          "id" : "29",
+          "linkedRelationshipId" : "26",
+          "sourceId" : "6"
+        }, {
+          "description" : "Make API calls to [JSON/HTTPS]",
+          "destinationId" : "16",
+          "id" : "62",
+          "linkedRelationshipId" : "60",
           "sourceId" : "6"
         } ],
         "tags" : "Element,Container",
         "technology" : "Flutter"
       }, {
         "components" : [ {
-          "description" : "Book page for the web app.",
+          "description" : "Doctor data page for the web app.",
           "documentation" : { },
-          "id" : "9",
-          "name" : "Web application",
+          "id" : "10",
+          "name" : "Doctor Data Page",
           "properties" : {
-            "structurizr.dsl.identifier" : "webbookpage"
+            "structurizr.dsl.identifier" : "webdoctordatapage"
           },
-          "tags" : "Element,Component"
+          "relationships" : [ {
+            "description" : "Make API calls to [JSON/HTTPS]",
+            "destinationId" : "14",
+            "id" : "41",
+            "sourceId" : "10",
+            "tags" : "Relationship"
+          }, {
+            "description" : "Make API calls to [JSON/HTTPS]",
+            "destinationId" : "12",
+            "id" : "42",
+            "linkedRelationshipId" : "41",
+            "sourceId" : "10"
+          } ],
+          "tags" : "Element,Component",
+          "technology" : "Typescript and React"
+        }, {
+          "description" : "Master data Faskes page for the web app.",
+          "documentation" : { },
+          "id" : "11",
+          "name" : "Master Data Faskes Page",
+          "properties" : {
+            "structurizr.dsl.identifier" : "webmasterdatafaskespage"
+          },
+          "relationships" : [ {
+            "description" : "Make API calls to [JSON/HTTPS]",
+            "destinationId" : "15",
+            "id" : "51",
+            "sourceId" : "11",
+            "tags" : "Relationship"
+          }, {
+            "description" : "Make API calls to [JSON/HTTPS]",
+            "destinationId" : "12",
+            "id" : "52",
+            "linkedRelationshipId" : "51",
+            "sourceId" : "11"
+          } ],
+          "tags" : "Element,Component",
+          "technology" : "Typescript and React"
         } ],
         "description" : "The web app for the C4 taks project.",
         "documentation" : { },
-        "id" : "8",
+        "id" : "9",
         "name" : "Web App",
         "properties" : {
           "structurizr.dsl.identifier" : "web"
         },
+        "relationships" : [ {
+          "description" : "Make API calls to [JSON/HTTPS]",
+          "destinationId" : "14",
+          "id" : "43",
+          "linkedRelationshipId" : "41",
+          "sourceId" : "9"
+        }, {
+          "description" : "Make API calls to [JSON/HTTPS]",
+          "destinationId" : "12",
+          "id" : "44",
+          "linkedRelationshipId" : "41",
+          "sourceId" : "9"
+        }, {
+          "description" : "Make API calls to [JSON/HTTPS]",
+          "destinationId" : "15",
+          "id" : "53",
+          "linkedRelationshipId" : "51",
+          "sourceId" : "9"
+        } ],
         "tags" : "Element,Container",
         "technology" : "NextJS"
       }, {
         "components" : [ {
-          "description" : "Controller for book related operations.",
+          "description" : "Controller for payment related operations.",
           "documentation" : { },
-          "id" : "11",
-          "name" : "Backend",
+          "id" : "13",
+          "name" : "Payment Controller",
           "properties" : {
-            "structurizr.dsl.identifier" : "bookcontroller"
+            "structurizr.dsl.identifier" : "paymentcontroller"
           },
           "relationships" : [ {
-            "destinationId" : "12",
-            "id" : "21",
-            "sourceId" : "11",
+            "description" : "Manage payment, billing, and validation using",
+            "destinationId" : "22",
+            "id" : "30",
+            "sourceId" : "13",
             "tags" : "Relationship"
+          }, {
+            "description" : "Reads from and to [SQL/TCP]",
+            "destinationId" : "18",
+            "id" : "34",
+            "sourceId" : "13",
+            "tags" : "Relationship"
+          }, {
+            "description" : "Reads from and to [SQL/TCP]",
+            "destinationId" : "17",
+            "id" : "35",
+            "linkedRelationshipId" : "34",
+            "sourceId" : "13"
+          } ],
+          "tags" : "Element,Component",
+          "technology" : "Golang and Raiden Framework"
+        }, {
+          "description" : "Controller for doctor data related operations",
+          "documentation" : { },
+          "id" : "14",
+          "name" : "Doctor Data Controller",
+          "properties" : {
+            "structurizr.dsl.identifier" : "doctordatacontroller"
+          },
+          "relationships" : [ {
+            "description" : "Reads from and to [SQL/TCP]",
+            "destinationId" : "19",
+            "id" : "45",
+            "sourceId" : "14",
+            "tags" : "Relationship"
+          }, {
+            "description" : "Reads from and to [SQL/TCP]",
+            "destinationId" : "17",
+            "id" : "46",
+            "linkedRelationshipId" : "45",
+            "sourceId" : "14"
+          } ],
+          "tags" : "Element,Component",
+          "technology" : "Golang and Raiden Framework"
+        }, {
+          "description" : "Controller for master data Faskes related operations",
+          "documentation" : { },
+          "id" : "15",
+          "name" : "Master Data Faskes Controller",
+          "properties" : {
+            "structurizr.dsl.identifier" : "masterdatafaskescontroller"
+          },
+          "relationships" : [ {
+            "description" : "Reads from and to [SQL/TCP]",
+            "destinationId" : "20",
+            "id" : "54",
+            "sourceId" : "15",
+            "tags" : "Relationship"
+          }, {
+            "description" : "Reads from and to [SQL/TCP]",
+            "destinationId" : "17",
+            "id" : "55",
+            "linkedRelationshipId" : "54",
+            "sourceId" : "15"
           } ],
           "tags" : "Element,Component"
+        }, {
+          "description" : "Controller for reservation related operations.",
+          "documentation" : { },
+          "id" : "16",
+          "name" : "Reservation Controller",
+          "properties" : {
+            "structurizr.dsl.identifier" : "reservationcontroller"
+          },
+          "relationships" : [ {
+            "description" : "Reads from and to [SQL/TCP]",
+            "destinationId" : "21",
+            "id" : "63",
+            "sourceId" : "16",
+            "tags" : "Relationship"
+          }, {
+            "description" : "Reads from and to [SQL/TCP]",
+            "destinationId" : "17",
+            "id" : "64",
+            "linkedRelationshipId" : "63",
+            "sourceId" : "16"
+          } ],
+          "tags" : "Element,Component",
+          "technology" : "Golang and Raiden Framework"
         } ],
         "description" : "Backend services for the application.",
         "documentation" : { },
-        "id" : "10",
-        "name" : "Backend / API",
+        "id" : "12",
+        "name" : "Backend",
         "properties" : {
           "structurizr.dsl.identifier" : "backend"
         },
         "relationships" : [ {
-          "destinationId" : "12",
-          "id" : "22",
-          "linkedRelationshipId" : "21",
-          "sourceId" : "10"
+          "description" : "Manage payment, billing, and validation using",
+          "destinationId" : "22",
+          "id" : "31",
+          "linkedRelationshipId" : "30",
+          "sourceId" : "12"
+        }, {
+          "description" : "Reads from and to [SQL/TCP]",
+          "destinationId" : "18",
+          "id" : "36",
+          "linkedRelationshipId" : "34",
+          "sourceId" : "12"
+        }, {
+          "description" : "Reads from and to [SQL/TCP]",
+          "destinationId" : "17",
+          "id" : "37",
+          "linkedRelationshipId" : "34",
+          "sourceId" : "12"
+        }, {
+          "description" : "Reads from and to [SQL/TCP]",
+          "destinationId" : "19",
+          "id" : "47",
+          "linkedRelationshipId" : "45",
+          "sourceId" : "12"
+        }, {
+          "description" : "Reads from and to [SQL/TCP]",
+          "destinationId" : "20",
+          "id" : "56",
+          "linkedRelationshipId" : "54",
+          "sourceId" : "12"
+        }, {
+          "description" : "Reads from and to [SQL/TCP]",
+          "destinationId" : "21",
+          "id" : "65",
+          "linkedRelationshipId" : "63",
+          "sourceId" : "12"
         } ],
         "tags" : "Element,Container",
         "technology" : "Golang Raiden"
       }, {
         "components" : [ {
-          "description" : "Stores book data.",
+          "description" : "Stores payment data.",
           "documentation" : { },
-          "id" : "13",
-          "name" : "Database",
+          "id" : "18",
+          "name" : "Payment Table",
           "properties" : {
-            "structurizr.dsl.identifier" : "booktable"
+            "structurizr.dsl.identifier" : "paymenttable"
           },
-          "tags" : "Element,Component"
+          "tags" : "Element,Component",
+          "technology" : "PostgreSQL"
+        }, {
+          "description" : "Stores doctor data",
+          "documentation" : { },
+          "id" : "19",
+          "name" : "Doctor Table",
+          "properties" : {
+            "structurizr.dsl.identifier" : "doctortable"
+          },
+          "tags" : "Element,Component",
+          "technology" : "PostgreSQL"
+        }, {
+          "description" : "Stores master data Faskes",
+          "documentation" : { },
+          "id" : "20",
+          "name" : "Master Faskes Table",
+          "properties" : {
+            "structurizr.dsl.identifier" : "masterfaskestable"
+          },
+          "tags" : "Element,Component",
+          "technology" : "PostgreSQL"
+        }, {
+          "description" : "Stores reservation data.",
+          "documentation" : { },
+          "id" : "21",
+          "name" : "Reservation Table",
+          "properties" : {
+            "structurizr.dsl.identifier" : "reservationtable"
+          },
+          "tags" : "Element,Component",
+          "technology" : "PostgreSQL"
         } ],
         "description" : "Stores all data for the application.",
         "documentation" : { },
-        "id" : "12",
+        "id" : "17",
         "name" : "Database",
         "properties" : {
           "structurizr.dsl.identifier" : "database"
@@ -183,17 +477,276 @@
       "properties" : {
         "structurizr.dsl.identifier" : "mainsystem"
       },
+      "relationships" : [ {
+        "description" : "Manage payment, billing, and validation using",
+        "destinationId" : "22",
+        "id" : "32",
+        "linkedRelationshipId" : "30",
+        "sourceId" : "5"
+      } ],
       "tags" : "Element,Software System"
+    }, {
+      "description" : "Sistem pembayaran pihak ketiga yang terintegrasi dengan Medpoint System",
+      "documentation" : { },
+      "id" : "22",
+      "location" : "Unspecified",
+      "name" : "Payment System",
+      "properties" : {
+        "structurizr.dsl.identifier" : "payment"
+      },
+      "relationships" : [ {
+        "description" : "Manage payment, billing, and validation to",
+        "destinationId" : "3",
+        "id" : "33",
+        "sourceId" : "22",
+        "tags" : "Relationship"
+      } ],
+      "tags" : "Element,Software System,External System"
     } ]
   },
   "name" : "c4_taks",
   "properties" : {
-    "structurizr.dsl" : "d29ya3NwYWNlIHsKICAgIG5hbWUgImM0X3Rha3MiCiAgICBkZXNjcmlwdGlvbiAiaW1wbGVtZW50IGM0IHJlZmFjdG9yeSIKCiAgICBtb2RlbCB7CiAgICAgICAgLy8gUGVvcGxlIChVc2VycykKICAgICAgICBzdXBlckFkbWluID0gcGVyc29uICJTdXBlciBBZG1pbiIgewogICAgICAgICAgICBkZXNjcmlwdGlvbiAiTWVuZ2Vsb2xhIHNlbXVhIGRhdGEgbWFzdGVyIGRhbiBoYWsgYWtzZXMgcGVuZ2d1bmEiCiAgICAgICAgfQogICAgICAgIAogICAgICAgIGFkbWluID0gcGVyc29uICJBZG1pbiIgewogICAgICAgICAgICBkZXNjcmlwdGlvbiAiTWVuZ2Vsb2xhIGRhdGEgbWFzdGVyLCBqYWR3YWwsIHNsb3QgcmVzZXJ2YXNpLCBkYW4gcGVtYmF5YXJhbiIKICAgICAgICB9CiAgICAgICAgCiAgICAgICAgdXNlciA9IHBlcnNvbiAiVXNlciIgewogICAgICAgICAgICBkZXNjcmlwdGlvbiAiTWVuZ2d1bmFrYW4gYXBsaWthc2kgdW50dWsgYmVyYmFnYWkga2VwZXJsdWFuIgogICAgICAgIH0KICAgICAgICAKICAgICAgICBkb2N0b3IgPSBwZXJzb24gIkRvY3RvciIgewogICAgICAgICAgICBkZXNjcmlwdGlvbiAiTWVtYmVyaWthbiBrb25zdWx0YXNpIGRhbiBsYXlhbmFuIGtlc2VoYXRhbiIKICAgICAgICB9CgogICAgICAgIC8vIE1haW4gU3lzdGVtCiAgICAgICAgbWFpblN5c3RlbSA9IHNvZnR3YXJlU3lzdGVtICJNZWRwb2ludCBzeXN0ZW0iIHsKICAgICAgICAgICAgZGVzY3JpcHRpb24gImltcGxlbWVudCBjNCByZWZhY3RvcnkiCiAgICAgICAgCiAgICAgICAgICAgIC8vIE1vYmlsZSBBcHBsaWNhdGlvbiBjb250YWluZXIKICAgICAgICAgICAgbW9iaWxlID0gY29udGFpbmVyICJNb2JpbGUgQXBwIiB7CiAgICAgICAgICAgICAgICBkZXNjcmlwdGlvbiAiVGhlIG1vYmlsZSBhcHAgZm9yIHRoZSBDNCB0YWtzIHByb2plY3QuIgogICAgICAgICAgICAgICAgdGVjaG5vbG9neSAiRmx1dHRlciIKICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgbW9iaWxlQm9va1BhZ2UgPSBjb21wb25lbnQgIk1vYmlsZSBhcHBsaWNhdGlvbiIgewogICAgICAgICAgICAgICAgICAgIGRlc2NyaXB0aW9uICJCb29rIHBhZ2UgZm9yIHRoZSBtb2JpbGUgYXBwLiIKICAgICAgICAgICAgICAgIH0KICAgICAgICAgICAgfQogICAgICAgICAgICAKICAgICAgICAgICAgLy8gV2ViIEFwcGxpY2F0aW9uIGNvbnRhaW5lcgogICAgICAgICAgICB3ZWIgPSBjb250YWluZXIgIldlYiBBcHAiIHsKICAgICAgICAgICAgICAgIGRlc2NyaXB0aW9uICJUaGUgd2ViIGFwcCBmb3IgdGhlIEM0IHRha3MgcHJvamVjdC4iCiAgICAgICAgICAgICAgICB0ZWNobm9sb2d5ICJOZXh0SlMiCiAgICAgICAgICAgIAogICAgICAgICAgICAgIHdlYkJvb2tQYWdlID0gY29tcG9uZW50ICJXZWIgYXBwbGljYXRpb24iIHsKICAgICAgICAgICAgICAgICAgZGVzY3JpcHRpb24gIkJvb2sgcGFnZSBmb3IgdGhlIHdlYiBhcHAuIgogICAgICAgICAgICAgICB9CiAgICAgICAgICAgIH0KICAgICAgICAgICAgCiAgICAgICAgICAgIC8vIEJhY2tlbmQgY29udGFpbmVyCiAgICAgICAgICAgIGJhY2tlbmQgPSBjb250YWluZXIgIkJhY2tlbmQgLyBBUEkiIHsKICAgICAgICAgICAgICAgIGRlc2NyaXB0aW9uICJCYWNrZW5kIHNlcnZpY2VzIGZvciB0aGUgYXBwbGljYXRpb24uIgogICAgICAgICAgICAgICAgdGVjaG5vbG9neSAiR29sYW5nIFJhaWRlbiIKICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICBib29rQ29udHJvbGxlciA9IGNvbXBvbmVudCAiQmFja2VuZCIgewogICAgICAgICAgICAgICAgICAgZGVzY3JpcHRpb24gIkNvbnRyb2xsZXIgZm9yIGJvb2sgcmVsYXRlZCBvcGVyYXRpb25zLiIKICAgICAgICAgICAgICAgIH0KICAgICAgICAgICAgfQogICAgICAgICAgICAKICAgICAgICAgICAgLy8gRGF0YWJhc2UgY29udGFpbmVyCiAgICAgICAgICAgIGRhdGFiYXNlID0gY29udGFpbmVyICJEYXRhYmFzZSIgewogICAgICAgICAgICAgICAgZGVzY3JpcHRpb24gIlN0b3JlcyBhbGwgZGF0YSBmb3IgdGhlIGFwcGxpY2F0aW9uLiIKICAgICAgICAgICAgICAgIHRlY2hub2xvZ3kgIlBvc3RncmVTUUwiCiAgICAgICAgICAgIAogICAgICAgICAgICAgICAgYm9va1RhYmxlID0gY29tcG9uZW50ICJEYXRhYmFzZSIgewogICAgICAgICAgICAgICAgICAgIGRlc2NyaXB0aW9uICJTdG9yZXMgYm9vayBkYXRhLiIKICAgICAgICAgICAgICAgIH0KICAgICAgICAgICAgfQogICAgICAgIH0KCiAgICAgICAgLy8gRXh0ZXJuYWwgU3lzdGVtCiAgICAgICAgLy8gQWRkIHlvdXIgZXh0ZXJuYWwgc3lzdGVtIGhlcmUKICAgICAgICAvLyBGb3IgZXhhbXBsZToKICAgICAgICAvLyBlbWFpbCA9IHNvZnR3YXJlU3lzdGVtICJFbWFpbCIgewogICAgICAgIC8vICAgICBkZXNjcmlwdGlvbiA9ICJUaGUgZW1haWwgc3lzdGVtIgogICAgICAgIC8vICAgICB0YWcgIkV4dGVybmFsIFN5c3RlbSIKICAgICAgICAvLyB9CgogICAgICAgIC8vIFJlbGF0aW9uc2hpcHMKICAgICAgICAvLyBBZGQgeW91ciByZWxhdGlvbnNoaXBzIGhlcmUKICAgICAgICB1c2VyIC0+IG1vYmlsZUJvb2tQYWdlIAogICAgICAgIG1vYmlsZUJvb2tQYWdlIC0+IGJvb2tDb250cm9sbGVyIAogICAgICAgIGJvb2tDb250cm9sbGVyIC0+IGRhdGFiYXNlCiAgICB9CgogICAgdmlld3MgewogICAgICAgIC8vIEFkZCB5b3VyIHZpZXdzIGhlcmUKICAgICAgICBkeW5hbWljIG1vYmlsZSB7CiAgICAgICAgICAgIHRpdGxlICJCb29rIgogICAgICAgIAogICAgICAgICAgICB1c2VyIC0+IG1vYmlsZUJvb2tQYWdlIAogICAgICAgICAgICBtb2JpbGVCb29rUGFnZSAtPiBib29rQ29udHJvbGxlciAKICAgICAgICAgICAgYm9va0NvbnRyb2xsZXIgLT4gZGF0YWJhc2UKICAgICAgICAKICAgICAgICAgICAgYXV0b2xheW91dCBscgogICAgICAgIH0KCiAgICAgICAgc3lzdGVtQ29udGV4dCBtYWluU3lzdGVtIHsKICAgICAgICAgICAgaW5jbHVkZSAqCiAgICAgICAgICAgIGF1dG9sYXlvdXQgbHIKICAgICAgICB9CiAgICAgICAgCiAgICAgICAgY29udGFpbmVyIG1haW5TeXN0ZW0gewogICAgICAgICAgICBpbmNsdWRlICoKICAgICAgICAgICAgYXV0b2xheW91dCBscgogICAgICAgIH0KCiAgICAgICAgc3R5bGVzIHsKICAgICAgICAgICAgZWxlbWVudCAiRWxlbWVudCIgewogICAgICAgICAgICAgICAgY29sb3IgI2ZmZmZmZgogICAgICAgICAgICB9CiAgICAgICAgICAgIGVsZW1lbnQgIlBlcnNvbiIgewogICAgICAgICAgICAgICAgYmFja2dyb3VuZCAjMDU1MjdkCiAgICAgICAgICAgICAgICBzaGFwZSBwZXJzb24KICAgICAgICAgICAgfQogICAgICAgICAgICBlbGVtZW50ICJTb2Z0d2FyZSBTeXN0ZW0iIHsKICAgICAgICAgICAgICAgIGJhY2tncm91bmQgIzA2NjI5NgogICAgICAgICAgICB9CiAgICAgICAgICAgIGVsZW1lbnQgIkNvbnRhaW5lciIgewogICAgICAgICAgICAgICAgYmFja2dyb3VuZCAjMDc3M2FmCiAgICAgICAgICAgIH0KICAgICAgICAgICAgZWxlbWVudCAiQ29tcG9uZW50IiB7CiAgICAgICAgICAgICAgICBiYWNrZ3JvdW5kICM4NWJiZjAKICAgICAgICAgICAgICAgIGNvbG9yICMwMDAwMDAKICAgICAgICAgICAgfQogICAgICAgICAgICBlbGVtZW50ICJFeHRlcm5hbCBTeXN0ZW0iIHsKICAgICAgICAgICAgICAgIGJhY2tncm91bmQgIzk5OTk5OQogICAgICAgICAgICB9CiAgICAgICAgICAgIGVsZW1lbnQgIkRhdGFiYXNlIiB7CiAgICAgICAgICAgICAgICBzaGFwZSBjeWxpbmRlcgogICAgICAgICAgICB9CiAgICAgICAgfQoKICAgICAgICB0aGVtZSBkZWZhdWx0CiAgICB9Cn0="
+    "structurizr.dsl" : "d29ya3NwYWNlIHsKICAgIG5hbWUgImM0X3Rha3MiCiAgICBkZXNjcmlwdGlvbiAiaW1wbGVtZW50IGM0IHJlZmFjdG9yeSIKCiAgICBtb2RlbCB7CiAgICAgICAgLy8gUGVvcGxlIChVc2VycykKICAgICAgICBzdXBlckFkbWluID0gcGVyc29uICJTdXBlciBBZG1pbiIgewogICAgICAgICAgICBkZXNjcmlwdGlvbiAiTWVuZ2Vsb2xhIHNlbXVhIGRhdGEgbWFzdGVyIGRhbiBoYWsgYWtzZXMgcGVuZ2d1bmEiCiAgICAgICAgfQogICAgICAgIAogICAgICAgIGFkbWluID0gcGVyc29uICJBZG1pbiIgewogICAgICAgICAgICBkZXNjcmlwdGlvbiAiTWVuZ2Vsb2xhIGRhdGEgbWFzdGVyLCBqYWR3YWwsIHNsb3QgcmVzZXJ2YXNpLCBkYW4gcGVtYmF5YXJhbiIKICAgICAgICB9CiAgICAgICAgCiAgICAgICAgdXNlciA9IHBlcnNvbiAiVXNlciIgewogICAgICAgICAgICBkZXNjcmlwdGlvbiAiTWVuZ2d1bmFrYW4gYXBsaWthc2kgdW50dWsgYmVyYmFnYWkga2VwZXJsdWFuIgogICAgICAgIH0KICAgICAgICAKICAgICAgICBkb2N0b3IgPSBwZXJzb24gIkRvY3RvciIgewogICAgICAgICAgICBkZXNjcmlwdGlvbiAiTWVtYmVyaWthbiBrb25zdWx0YXNpIGRhbiBsYXlhbmFuIGtlc2VoYXRhbiIKICAgICAgICB9CgogICAgICAgIC8vIE1haW4gU3lzdGVtCiAgICAgICAgbWFpblN5c3RlbSA9IHNvZnR3YXJlU3lzdGVtICJNZWRwb2ludCBzeXN0ZW0iIHsKICAgICAgICAgICAgZGVzY3JpcHRpb24gImltcGxlbWVudCBjNCByZWZhY3RvcnkiCiAgICAgICAgCiAgICAgICAgICAgIC8vIE1vYmlsZSBBcHBsaWNhdGlvbiBjb250YWluZXIKICAgICAgICAgICAgbW9iaWxlID0gY29udGFpbmVyICJNb2JpbGUgQXBwIiB7CiAgICAgICAgICAgICAgICBkZXNjcmlwdGlvbiAiVGhlIG1vYmlsZSBhcHAgZm9yIHRoZSBDNCB0YWtzIHByb2plY3QuIgogICAgICAgICAgICAgICAgdGVjaG5vbG9neSAiRmx1dHRlciIKICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgbW9iaWxlUGF5bWVudFBhZ2UgPSBjb21wb25lbnQgIlBheW1lbnQgUGFnZSIgewogICAgICAgICAgICAgICAgICAgIGRlc2NyaXB0aW9uICJQYXltZW50IHBhZ2UgZm9yIHRoZSBtb2JpbGUgYXBwLiIKICAgICAgICAgICAgICAgICAgICB0ZWNobm9sb2d5ICJEYXJ0IGFuZCBGbHV0dGVyIgogICAgICAgICAgICAgICAgfQogICAgICAgICAgICAKICAgICAgICAgICAgICAgIG1vYmlsZVByb3ZpZGVSZXNlcnZhdGlvblBhZ2UgPSBjb21wb25lbnQgIlByb3ZpZGUgUmVzZXJ2YXRpb24gUGFnZSIgewogICAgICAgICAgICAgICAgICAgIGRlc2NyaXB0aW9uICJQcm92aWRlIHJlc2VydmF0aW9uIHBhZ2UgZm9yIHRoZSBtb2JpbGUgYXBwLiIKICAgICAgICAgICAgICAgICAgICB0ZWNobm9sb2d5ICJEYXJ0IGFuZCBGbHV0dGVyIgogICAgICAgICAgICAgICAgfQogICAgICAgICAgICB9CiAgICAgICAgICAgIAogICAgICAgICAgICAvLyBXZWIgQXBwbGljYXRpb24gY29udGFpbmVyCiAgICAgICAgICAgIHdlYiA9IGNvbnRhaW5lciAiV2ViIEFwcCIgewogICAgICAgICAgICAgICAgZGVzY3JpcHRpb24gIlRoZSB3ZWIgYXBwIGZvciB0aGUgQzQgdGFrcyBwcm9qZWN0LiIKICAgICAgICAgICAgICAgIHRlY2hub2xvZ3kgIk5leHRKUyIKICAgICAgICAgICAgCiAgICAgICAgICAgICAgICB3ZWJEb2N0b3JEYXRhUGFnZSA9IGNvbXBvbmVudCAiRG9jdG9yIERhdGEgUGFnZSIgewogICAgICAgICAgICAgICAgICAgIGRlc2NyaXB0aW9uICJEb2N0b3IgZGF0YSBwYWdlIGZvciB0aGUgd2ViIGFwcC4iCiAgICAgICAgICAgICAgICAgICAgdGVjaG5vbG9neSAiVHlwZXNjcmlwdCBhbmQgUmVhY3QiCiAgICAgICAgICAgICAgICB9CiAgICAgICAgICAgIAogICAgICAgICAgICAgICAgd2ViTWFzdGVyRGF0YUZhc2tlc1BhZ2UgPSBjb21wb25lbnQgIk1hc3RlciBEYXRhIEZhc2tlcyBQYWdlIiB7CiAgICAgICAgICAgICAgICAgICAgZGVzY3JpcHRpb24gIk1hc3RlciBkYXRhIEZhc2tlcyBwYWdlIGZvciB0aGUgd2ViIGFwcC4iCiAgICAgICAgICAgICAgICAgICAgdGVjaG5vbG9neSAiVHlwZXNjcmlwdCBhbmQgUmVhY3QiCiAgICAgICAgICAgICAgICB9CiAgICAgICAgICAgIH0KICAgICAgICAgICAgCiAgICAgICAgICAgIC8vIEJhY2tlbmQgY29udGFpbmVyCiAgICAgICAgICAgIGJhY2tlbmQgPSBjb250YWluZXIgIkJhY2tlbmQiIHsKICAgICAgICAgICAgICAgIGRlc2NyaXB0aW9uICJCYWNrZW5kIHNlcnZpY2VzIGZvciB0aGUgYXBwbGljYXRpb24uIgogICAgICAgICAgICAgICAgdGVjaG5vbG9neSAiR29sYW5nIFJhaWRlbiIKICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgIHBheW1lbnRDb250cm9sbGVyID0gY29tcG9uZW50ICJQYXltZW50IENvbnRyb2xsZXIiIHsKICAgICAgICAgICAgICAgICAgICBkZXNjcmlwdGlvbiAiQ29udHJvbGxlciBmb3IgcGF5bWVudCByZWxhdGVkIG9wZXJhdGlvbnMuIgogICAgICAgICAgICAgICAgICAgIHRlY2hub2xvZ3kgIkdvbGFuZyBhbmQgUmFpZGVuIEZyYW1ld29yayIKICAgICAgICAgICAgICAgIH0KICAgICAgICAgICAgCiAgICAgICAgICAgICAgICBkb2N0b3JEYXRhQ29udHJvbGxlciA9IGNvbXBvbmVudCAiRG9jdG9yIERhdGEgQ29udHJvbGxlciJ7CiAgICAgICAgICAgICAgICAgICAgZGVzY3JpcHRpb24gIkNvbnRyb2xsZXIgZm9yIGRvY3RvciBkYXRhIHJlbGF0ZWQgb3BlcmF0aW9ucyIKICAgICAgICAgICAgICAgICAgICB0ZWNobm9sb2d5ICJHb2xhbmcgYW5kIFJhaWRlbiBGcmFtZXdvcmsiCiAgICAgICAgICAgICAgICB9CiAgICAgICAgICAgIAogICAgICAgICAgICAgICAgbWFzdGVyRGF0YUZhc2tlc0NvbnRyb2xsZXIgPSBjb21wb25lbnQgIk1hc3RlciBEYXRhIEZhc2tlcyBDb250cm9sbGVyInsKICAgICAgICAgICAgICAgICAgICBkZXNjcmlwdGlvbiAiQ29udHJvbGxlciBmb3IgbWFzdGVyIGRhdGEgRmFza2VzIHJlbGF0ZWQgb3BlcmF0aW9ucyIKICAgICAgICAgICAgICAgIH0KICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgcmVzZXJ2YXRpb25Db250cm9sbGVyID0gY29tcG9uZW50ICJSZXNlcnZhdGlvbiBDb250cm9sbGVyIiB7CiAgICAgICAgICAgICAgICAgICAgZGVzY3JpcHRpb24gIkNvbnRyb2xsZXIgZm9yIHJlc2VydmF0aW9uIHJlbGF0ZWQgb3BlcmF0aW9ucy4iCiAgICAgICAgICAgICAgICAgICAgdGVjaG5vbG9neSAiR29sYW5nIGFuZCBSYWlkZW4gRnJhbWV3b3JrIgogICAgICAgICAgICAgICAgfQogICAgICAgICAgICB9CiAgICAgICAgICAgIAogICAgICAgICAgICAvLyBEYXRhYmFzZSBjb250YWluZXIKICAgICAgICAgICAgZGF0YWJhc2UgPSBjb250YWluZXIgIkRhdGFiYXNlIiB7CiAgICAgICAgICAgICAgICBkZXNjcmlwdGlvbiAiU3RvcmVzIGFsbCBkYXRhIGZvciB0aGUgYXBwbGljYXRpb24uIgogICAgICAgICAgICAgICAgdGVjaG5vbG9neSAiUG9zdGdyZVNRTCIKICAgICAgICAgICAgCiAgICAgICAgICAgICAgIHBheW1lbnRUYWJsZSA9IGNvbXBvbmVudCAiUGF5bWVudCBUYWJsZSIgewogICAgICAgICAgICAgICAgICAgIGRlc2NyaXB0aW9uICJTdG9yZXMgcGF5bWVudCBkYXRhLiIKICAgICAgICAgICAgICAgICAgICB0ZWNobm9sb2d5ICJQb3N0Z3JlU1FMIgogICAgICAgICAgICAgICAgfQogICAgICAgICAgICAKICAgICAgICAgICAgICAgIGRvY3RvclRhYmxlID0gY29tcG9uZW50ICJEb2N0b3IgVGFibGUiIHsKICAgICAgICAgICAgICAgICAgICBkZXNjcmlwdGlvbiAiU3RvcmVzIGRvY3RvciBkYXRhIgogICAgICAgICAgICAgICAgICAgIHRlY2hub2xvZ3kgIlBvc3RncmVTUUwiCiAgICAgICAgICAgICAgICB9CiAgICAgICAgICAgIAogICAgICAgICAgICAgICAgbWFzdGVyRmFza2VzVGFibGUgPSBjb21wb25lbnQgIk1hc3RlciBGYXNrZXMgVGFibGUiIHsKICAgICAgICAgICAgICAgICAgICBkZXNjcmlwdGlvbiAiU3RvcmVzIG1hc3RlciBkYXRhIEZhc2tlcyIKICAgICAgICAgICAgICAgICAgICB0ZWNobm9sb2d5ICJQb3N0Z3JlU1FMIgogICAgICAgICAgICAgICAgfQogICAgICAgICAgICAKICAgICAgICAgICAgICAgIHJlc2VydmF0aW9uVGFibGUgPSBjb21wb25lbnQgIlJlc2VydmF0aW9uIFRhYmxlIiB7CiAgICAgICAgICAgICAgICAgICAgZGVzY3JpcHRpb24gIlN0b3JlcyByZXNlcnZhdGlvbiBkYXRhLiIKICAgICAgICAgICAgICAgICAgICB0ZWNobm9sb2d5ICJQb3N0Z3JlU1FMIgogICAgICAgICAgICAgICAgfQogICAgICAgICAgICB9CiAgICAgICAgfQoKICAgICAgICAvLyBFeHRlcm5hbCBTeXN0ZW0KICAgICAgICBwYXltZW50ID0gc29mdHdhcmVTeXN0ZW0gIlBheW1lbnQgU3lzdGVtIiB7CiAgICAgICAgICAgIGRlc2NyaXB0aW9uICJTaXN0ZW0gcGVtYmF5YXJhbiBwaWhhayBrZXRpZ2EgeWFuZyB0ZXJpbnRlZ3Jhc2kgZGVuZ2FuIE1lZHBvaW50IFN5c3RlbSIKICAgICAgICAgICAgdGFnICJFeHRlcm5hbCBTeXN0ZW0iCiAgICAgICAgfQoKICAgICAgICAvLyBSZWxhdGlvbnNoaXBzCiAgICAgICAgLy8gQWRkIHlvdXIgcmVsYXRpb25zaGlwcyBoZXJlCiAgICAgICAgdXNlciAtPiBtb2JpbGVQYXltZW50UGFnZSAiTWFrZSBwYXltZW50cyB1c2luZyIKICAgICAgICBtb2JpbGVQYXltZW50UGFnZSAtPiBwYXltZW50Q29udHJvbGxlciAiTWFrZSBBUEkgY2FsbHMgdG8gW0pTT04vSFRUUFNdIgogICAgICAgIHBheW1lbnRDb250cm9sbGVyIC0+IHBheW1lbnQgIk1hbmFnZSBwYXltZW50LCBiaWxsaW5nLCBhbmQgdmFsaWRhdGlvbiB1c2luZyIKICAgICAgICBwYXltZW50IC0+IHVzZXIgIk1hbmFnZSBwYXltZW50LCBiaWxsaW5nLCBhbmQgdmFsaWRhdGlvbiB0byIKICAgICAgICBwYXltZW50Q29udHJvbGxlciAtPiBwYXltZW50VGFibGUgIlJlYWRzIGZyb20gYW5kIHRvIFtTUUwvVENQXSIKICAgICAgICBzdXBlcmFkbWluIC0+IHdlYkRvY3RvckRhdGFQYWdlICJNYW5hZ2UgZG9jdG9yIGRhdGEgdXNpbmciCiAgICAgICAgd2ViRG9jdG9yRGF0YVBhZ2UgLT4gZG9jdG9yRGF0YUNvbnRyb2xsZXIgIk1ha2UgQVBJIGNhbGxzIHRvIFtKU09OL0hUVFBTXSIKICAgICAgICBkb2N0b3JEYXRhQ29udHJvbGxlciAtPiBkb2N0b3JUYWJsZSAiUmVhZHMgZnJvbSBhbmQgdG8gW1NRTC9UQ1BdIgogICAgICAgIGFkbWluIC0+IHdlYk1hc3RlckRhdGFGYXNrZXNQYWdlICJNYW5hZ2UgbWFzdGVyIGRhdGEgRmFza2VzIHVzaW5nIgogICAgICAgIHdlYk1hc3RlckRhdGFGYXNrZXNQYWdlIC0+IG1hc3RlckRhdGFGYXNrZXNDb250cm9sbGVyICJNYWtlIEFQSSBjYWxscyB0byBbSlNPTi9IVFRQU10iCiAgICAgICAgbWFzdGVyRGF0YUZhc2tlc0NvbnRyb2xsZXIgLT4gbWFzdGVyRmFza2VzVGFibGUgIlJlYWRzIGZyb20gYW5kIHRvIFtTUUwvVENQXSIKICAgICAgICAKICAgICAgICBkb2N0b3IgLT4gbW9iaWxlUHJvdmlkZVJlc2VydmF0aW9uUGFnZSAiUHJvdmlkZSByZXNlcnZhdGlvbiB1c2luZyIKICAgICAgICBtb2JpbGVQcm92aWRlUmVzZXJ2YXRpb25QYWdlIC0+IHJlc2VydmF0aW9uQ29udHJvbGxlciAiTWFrZSBBUEkgY2FsbHMgdG8gW0pTT04vSFRUUFNdIgogICAgICAgIHJlc2VydmF0aW9uQ29udHJvbGxlciAtPiByZXNlcnZhdGlvblRhYmxlICJSZWFkcyBmcm9tIGFuZCB0byBbU1FML1RDUF0iCiAgICB9CgogICAgdmlld3MgewogICAgICAgIC8vIEFkZCB5b3VyIHZpZXdzIGhlcmUKICAgICAgICBkeW5hbWljIG1vYmlsZSB7CiAgICAgICAgICAgIHRpdGxlICJNYWtlIFBheW1lbnQiCiAgICAgICAgCiAgICAgICAgICAgIHVzZXIgLT4gbW9iaWxlUGF5bWVudFBhZ2UgIk1ha2UgcGF5bWVudHMgdXNpbmciCiAgICAgICAgICAgIG1vYmlsZVBheW1lbnRQYWdlIC0+IHBheW1lbnRDb250cm9sbGVyICJNYWtlIEFQSSBjYWxscyB0byBbSlNPTi9IVFRQU10iCiAgICAgICAgICAgIHBheW1lbnRDb250cm9sbGVyIC0+IHBheW1lbnQgIk1hbmFnZSBwYXltZW50LCBiaWxsaW5nLCBhbmQgdmFsaWRhdGlvbiB1c2luZyIKICAgICAgICAgICAgcGF5bWVudCAtPiB1c2VyICJNYW5hZ2UgcGF5bWVudCwgYmlsbGluZywgYW5kIHZhbGlkYXRpb24gdG8iCiAgICAgICAgICAgIHBheW1lbnRDb250cm9sbGVyIC0+IHBheW1lbnRUYWJsZSAiUmVhZHMgZnJvbSBhbmQgdG8gW1NRTC9UQ1BdIgogICAgICAgIAogICAgICAgICAgICBhdXRvbGF5b3V0IGxyCiAgICAgICAgfQogICAgICAgIGR5bmFtaWMgbW9iaWxlIHsKICAgICAgICAgICAgdGl0bGUgIk1hbmFnZSBEb2N0b3IgRGF0YSIKICAgICAgICAKICAgICAgICAgICAgc3VwZXJhZG1pbiAtPiB3ZWJEb2N0b3JEYXRhUGFnZSAiTWFuYWdlIGRvY3RvciBkYXRhIHVzaW5nIgogICAgICAgICAgICB3ZWJEb2N0b3JEYXRhUGFnZSAtPiBkb2N0b3JEYXRhQ29udHJvbGxlciAiTWFrZSBBUEkgY2FsbHMgdG8gW0pTT04vSFRUUFNdIgogICAgICAgICAgICBkb2N0b3JEYXRhQ29udHJvbGxlciAtPiBkb2N0b3JUYWJsZSAiUmVhZHMgZnJvbSBhbmQgdG8gW1NRTC9UQ1BdIgogICAgICAgIAogICAgICAgICAgICBhdXRvbGF5b3V0IGxyCiAgICAgICAgfQogICAgICAgIGR5bmFtaWMgbW9iaWxlIHsKICAgICAgICAgICAgdGl0bGUgIk1hbmFnZSBNYXN0ZXIgRGF0YSBGYXNrZXMiCiAgICAgICAgCiAgICAgICAgICAgIGFkbWluIC0+IHdlYk1hc3RlckRhdGFGYXNrZXNQYWdlICJNYW5hZ2UgbWFzdGVyIGRhdGEgRmFza2VzIHVzaW5nIgogICAgICAgICAgICB3ZWJNYXN0ZXJEYXRhRmFza2VzUGFnZSAtPiBtYXN0ZXJEYXRhRmFza2VzQ29udHJvbGxlciAiTWFrZSBBUEkgY2FsbHMgdG8gW0pTT04vSFRUUFNdIgogICAgICAgICAgICBtYXN0ZXJEYXRhRmFza2VzQ29udHJvbGxlciAtPiBtYXN0ZXJGYXNrZXNUYWJsZSAiUmVhZHMgZnJvbSBhbmQgdG8gW1NRTC9UQ1BdIgogICAgICAgIAogICAgICAgICAgICBhdXRvbGF5b3V0IGxyCiAgICAgICAgfQogICAgICAgIGR5bmFtaWMgbW9iaWxlIHsKICAgICAgICAgICAgdGl0bGUgIlByb3ZpZGUgUmVzZXJ2YXRpb24iCiAgICAgICAgCiAgICAgICAgICAgIGRvY3RvciAtPiBtb2JpbGVQcm92aWRlUmVzZXJ2YXRpb25QYWdlICJQcm92aWRlIHJlc2VydmF0aW9uIHVzaW5nIgogICAgICAgICAgICBtb2JpbGVQcm92aWRlUmVzZXJ2YXRpb25QYWdlIC0+IHJlc2VydmF0aW9uQ29udHJvbGxlciAiTWFrZSBBUEkgY2FsbHMgdG8gW0pTT04vSFRUUFNdIgogICAgICAgICAgICByZXNlcnZhdGlvbkNvbnRyb2xsZXIgLT4gcmVzZXJ2YXRpb25UYWJsZSAiUmVhZHMgZnJvbSBhbmQgdG8gW1NRTC9UQ1BdIiAKICAgICAgICAgICAgCiAgICAgICAgICAgIGF1dG9sYXlvdXQgbHIKICAgICAgICB9CgogICAgICAgIHN5c3RlbUNvbnRleHQgbWFpblN5c3RlbSB7CiAgICAgICAgICAgIGluY2x1ZGUgKgogICAgICAgICAgICBhdXRvbGF5b3V0IGxyCiAgICAgICAgfQogICAgICAgIAogICAgICAgIGNvbnRhaW5lciBtYWluU3lzdGVtIHsKICAgICAgICAgICAgaW5jbHVkZSAqCiAgICAgICAgICAgIGF1dG9sYXlvdXQgbHIKICAgICAgICB9CgogICAgICAgIGNvbXBvbmVudCBtb2JpbGUgewogICAgICAgICAgICBpbmNsdWRlICoKICAgICAgICAgICAgYXV0b2xheW91dCB0YgogICAgICAgIH0KCiAgICAgICAgY29tcG9uZW50IHdlYiB7CiAgICAgICAgICAgIGluY2x1ZGUgKgogICAgICAgICAgICBhdXRvbGF5b3V0IHRiCiAgICAgICAgfQoKICAgICAgICBjb21wb25lbnQgYmFja2VuZCB7CiAgICAgICAgICAgIGluY2x1ZGUgKgogICAgICAgICAgICBhdXRvbGF5b3V0IHRiCiAgICAgICAgfQoKICAgICAgICBjb21wb25lbnQgZGF0YWJhc2UgewogICAgICAgICAgICBpbmNsdWRlICoKICAgICAgICAgICAgYXV0b2xheW91dCB0YgogICAgICAgIH0KCgogICAgICAgIHN0eWxlcyB7CiAgICAgICAgICAgIGVsZW1lbnQgIkVsZW1lbnQiIHsKICAgICAgICAgICAgICAgIGNvbG9yICNmZmZmZmYKICAgICAgICAgICAgfQogICAgICAgICAgICBlbGVtZW50ICJQZXJzb24iIHsKICAgICAgICAgICAgICAgIGJhY2tncm91bmQgIzA1NTI3ZAogICAgICAgICAgICAgICAgc2hhcGUgcGVyc29uCiAgICAgICAgICAgIH0KICAgICAgICAgICAgZWxlbWVudCAiU29mdHdhcmUgU3lzdGVtIiB7CiAgICAgICAgICAgICAgICBiYWNrZ3JvdW5kICMwNjYyOTYKICAgICAgICAgICAgfQogICAgICAgICAgICBlbGVtZW50ICJDb250YWluZXIiIHsKICAgICAgICAgICAgICAgIGJhY2tncm91bmQgIzA3NzNhZgogICAgICAgICAgICB9CiAgICAgICAgICAgIGVsZW1lbnQgIkNvbXBvbmVudCIgewogICAgICAgICAgICAgICAgYmFja2dyb3VuZCAjODViYmYwCiAgICAgICAgICAgICAgICBjb2xvciAjMDAwMDAwCiAgICAgICAgICAgIH0KICAgICAgICAgICAgZWxlbWVudCAiRXh0ZXJuYWwgU3lzdGVtIiB7CiAgICAgICAgICAgICAgICBiYWNrZ3JvdW5kICM5OTk5OTkKICAgICAgICAgICAgfQogICAgICAgICAgICBlbGVtZW50ICJEYXRhYmFzZSIgewogICAgICAgICAgICAgICAgc2hhcGUgY3lsaW5kZXIKICAgICAgICAgICAgfQogICAgICAgIH0KCiAgICAgICAgdGhlbWUgZGVmYXVsdAogICAgfQp9"
   },
   "views" : {
+    "componentViews" : [ {
+      "automaticLayout" : {
+        "applied" : true,
+        "edgeSeparation" : 0,
+        "implementation" : "Graphviz",
+        "nodeSeparation" : 300,
+        "rankDirection" : "TopBottom",
+        "rankSeparation" : 300,
+        "vertices" : false
+      },
+      "containerId" : "6",
+      "dimensions" : {
+        "height" : 2000,
+        "width" : 1640
+      },
+      "elements" : [ {
+        "id" : "3",
+        "x" : 245,
+        "y" : 165
+      }, {
+        "id" : "4",
+        "x" : 995,
+        "y" : 165
+      }, {
+        "id" : "7",
+        "x" : 220,
+        "y" : 865
+      }, {
+        "id" : "8",
+        "x" : 970,
+        "y" : 865
+      }, {
+        "id" : "12",
+        "x" : 595,
+        "y" : 1465
+      } ],
+      "externalContainerBoundariesVisible" : false,
+      "generatedKey" : true,
+      "key" : "Component-001",
+      "order" : 7,
+      "relationships" : [ {
+        "id" : "23"
+      }, {
+        "id" : "27"
+      }, {
+        "id" : "57"
+      }, {
+        "id" : "61"
+      } ]
+    }, {
+      "automaticLayout" : {
+        "applied" : true,
+        "edgeSeparation" : 0,
+        "implementation" : "Graphviz",
+        "nodeSeparation" : 300,
+        "rankDirection" : "TopBottom",
+        "rankSeparation" : 300,
+        "vertices" : false
+      },
+      "containerId" : "9",
+      "dimensions" : {
+        "height" : 2000,
+        "width" : 1640
+      },
+      "elements" : [ {
+        "id" : "1",
+        "x" : 245,
+        "y" : 165
+      }, {
+        "id" : "2",
+        "x" : 995,
+        "y" : 165
+      }, {
+        "id" : "10",
+        "x" : 220,
+        "y" : 865
+      }, {
+        "id" : "11",
+        "x" : 970,
+        "y" : 865
+      }, {
+        "id" : "12",
+        "x" : 595,
+        "y" : 1465
+      } ],
+      "externalContainerBoundariesVisible" : false,
+      "generatedKey" : true,
+      "key" : "Component-002",
+      "order" : 8,
+      "relationships" : [ {
+        "id" : "38"
+      }, {
+        "id" : "42"
+      }, {
+        "id" : "48"
+      }, {
+        "id" : "52"
+      } ]
+    }, {
+      "automaticLayout" : {
+        "applied" : true,
+        "edgeSeparation" : 0,
+        "implementation" : "Graphviz",
+        "nodeSeparation" : 300,
+        "rankDirection" : "TopBottom",
+        "rankSeparation" : 300,
+        "vertices" : false
+      },
+      "containerId" : "12",
+      "dimensions" : {
+        "height" : 1900,
+        "width" : 3140
+      },
+      "elements" : [ {
+        "id" : "6",
+        "x" : 781,
+        "y" : 165
+      }, {
+        "id" : "9",
+        "x" : 1906,
+        "y" : 165
+      }, {
+        "id" : "13",
+        "x" : 219,
+        "y" : 765
+      }, {
+        "id" : "14",
+        "x" : 2469,
+        "y" : 765
+      }, {
+        "id" : "15",
+        "x" : 1719,
+        "y" : 765
+      }, {
+        "id" : "16",
+        "x" : 969,
+        "y" : 765
+      }, {
+        "id" : "17",
+        "x" : 1344,
+        "y" : 1365
+      }, {
+        "id" : "22",
+        "x" : 219,
+        "y" : 1365
+      } ],
+      "externalContainerBoundariesVisible" : false,
+      "generatedKey" : true,
+      "key" : "Component-003",
+      "order" : 9,
+      "relationships" : [ {
+        "id" : "28"
+      }, {
+        "id" : "30"
+      }, {
+        "id" : "35",
+        "vertices" : [ {
+          "x" : 819,
+          "y" : 1169
+        } ]
+      }, {
+        "id" : "43"
+      }, {
+        "id" : "46",
+        "vertices" : [ {
+          "x" : 2319,
+          "y" : 1169
+        } ]
+      }, {
+        "id" : "53"
+      }, {
+        "id" : "55"
+      }, {
+        "id" : "62"
+      }, {
+        "id" : "64"
+      } ]
+    }, {
+      "automaticLayout" : {
+        "applied" : true,
+        "edgeSeparation" : 0,
+        "implementation" : "Graphviz",
+        "nodeSeparation" : 300,
+        "rankDirection" : "TopBottom",
+        "rankSeparation" : 300,
+        "vertices" : false
+      },
+      "containerId" : "17",
+      "dimensions" : {
+        "height" : 1391,
+        "width" : 3140
+      },
+      "elements" : [ {
+        "id" : "12",
+        "x" : 1344,
+        "y" : 165
+      }, {
+        "id" : "18",
+        "x" : 2469,
+        "y" : 765
+      }, {
+        "id" : "19",
+        "x" : 1719,
+        "y" : 765
+      }, {
+        "id" : "20",
+        "x" : 969,
+        "y" : 765
+      }, {
+        "id" : "21",
+        "x" : 219,
+        "y" : 765
+      } ],
+      "externalContainerBoundariesVisible" : false,
+      "generatedKey" : true,
+      "key" : "Component-004",
+      "order" : 10,
+      "relationships" : [ {
+        "id" : "36",
+        "vertices" : [ {
+          "x" : 2319,
+          "y" : 661
+        } ]
+      }, {
+        "id" : "47"
+      }, {
+        "id" : "56"
+      }, {
+        "id" : "65",
+        "vertices" : [ {
+          "x" : 819,
+          "y" : 661
+        } ]
+      } ]
+    } ],
     "configuration" : {
       "branding" : { },
-      "lastSavedView" : "Dynamic-001",
+      "lastSavedView" : "Dynamic-004",
       "metadataSymbols" : "SquareBrackets",
       "styles" : {
         "elements" : [ {
@@ -226,7 +779,7 @@
     },
     "containerViews" : [ {
       "automaticLayout" : {
-        "applied" : false,
+        "applied" : true,
         "edgeSeparation" : 0,
         "implementation" : "Graphviz",
         "nodeSeparation" : 300,
@@ -234,37 +787,73 @@
         "rankSeparation" : 300,
         "vertices" : false
       },
+      "dimensions" : {
+        "height" : 2913,
+        "width" : 3750
+      },
       "elements" : [ {
+        "id" : "1",
+        "x" : 200,
+        "y" : 165
+      }, {
+        "id" : "2",
+        "x" : 200,
+        "y" : 865
+      }, {
         "id" : "3",
-        "x" : 0,
-        "y" : 0
+        "x" : 3150,
+        "y" : 2278
+      }, {
+        "id" : "4",
+        "x" : 200,
+        "y" : 1565
       }, {
         "id" : "6",
-        "x" : 0,
-        "y" : 0
+        "x" : 900,
+        "y" : 1515
       }, {
-        "id" : "8",
-        "x" : 0,
-        "y" : 0
-      }, {
-        "id" : "10",
-        "x" : 0,
-        "y" : 0
+        "id" : "9",
+        "x" : 900,
+        "y" : 915
       }, {
         "id" : "12",
-        "x" : 0,
-        "y" : 0
+        "x" : 1650,
+        "y" : 1469
+      }, {
+        "id" : "17",
+        "x" : 2400,
+        "y" : 1424
+      }, {
+        "id" : "22",
+        "x" : 2400,
+        "y" : 2024
       } ],
       "externalSoftwareSystemBoundariesVisible" : false,
       "generatedKey" : true,
       "key" : "Container-001",
-      "order" : 3,
+      "order" : 6,
       "relationships" : [ {
-        "id" : "15"
+        "id" : "24",
+        "vertices" : [ {
+          "x" : 2400,
+          "y" : 2474
+        } ]
       }, {
-        "id" : "20"
+        "id" : "29"
       }, {
-        "id" : "22"
+        "id" : "31"
+      }, {
+        "id" : "33"
+      }, {
+        "id" : "37"
+      }, {
+        "id" : "39"
+      }, {
+        "id" : "44"
+      }, {
+        "id" : "49"
+      }, {
+        "id" : "58"
       } ],
       "softwareSystemId" : "5"
     } ],
@@ -279,45 +868,231 @@
         "vertices" : false
       },
       "dimensions" : {
-        "height" : 841,
-        "width" : 3050
+        "height" : 1557,
+        "width" : 3090
       },
       "elementId" : "6",
       "elements" : [ {
         "id" : "3",
-        "x" : 200,
-        "y" : 165
+        "x" : 1719,
+        "y" : 710
       }, {
         "id" : "7",
-        "x" : 900,
-        "y" : 215
+        "x" : 2419,
+        "y" : 931
       }, {
-        "id" : "11",
-        "x" : 1650,
-        "y" : 215
+        "id" : "13",
+        "x" : 219,
+        "y" : 785
       }, {
-        "id" : "12",
-        "x" : 2400,
-        "y" : 215
+        "id" : "18",
+        "x" : 969,
+        "y" : 185
+      }, {
+        "id" : "22",
+        "x" : 969,
+        "y" : 785
       } ],
       "externalBoundariesVisible" : false,
       "generatedKey" : true,
       "key" : "Dynamic-001",
       "order" : 1,
       "relationships" : [ {
-        "id" : "14",
+        "description" : "Make payments using",
+        "id" : "23",
         "order" : "1",
         "response" : false
       }, {
-        "id" : "17",
+        "description" : "Make API calls to [JSON/HTTPS]",
+        "id" : "26",
+        "order" : "2",
+        "response" : false,
+        "vertices" : [ {
+          "x" : 2119,
+          "y" : 1260
+        }, {
+          "x" : 1719,
+          "y" : 1260
+        }, {
+          "x" : 865,
+          "y" : 1235
+        } ]
+      }, {
+        "description" : "Manage payment, billing, and validation using",
+        "id" : "30",
+        "order" : "3",
+        "response" : false
+      }, {
+        "description" : "Manage payment, billing, and validation to",
+        "id" : "33",
+        "order" : "4",
+        "response" : false
+      }, {
+        "description" : "Reads from and to [SQL/TCP]",
+        "id" : "34",
+        "order" : "5",
+        "response" : false
+      } ],
+      "title" : "Make Payment"
+    }, {
+      "automaticLayout" : {
+        "applied" : true,
+        "edgeSeparation" : 0,
+        "implementation" : "Graphviz",
+        "nodeSeparation" : 300,
+        "rankDirection" : "LeftRight",
+        "rankSeparation" : 300,
+        "vertices" : false
+      },
+      "dimensions" : {
+        "height" : 841,
+        "width" : 3070
+      },
+      "elementId" : "6",
+      "elements" : [ {
+        "id" : "1",
+        "x" : 199,
+        "y" : 165
+      }, {
+        "id" : "10",
+        "x" : 899,
+        "y" : 215
+      }, {
+        "id" : "14",
+        "x" : 1649,
+        "y" : 215
+      }, {
+        "id" : "19",
+        "x" : 2399,
+        "y" : 215
+      } ],
+      "externalBoundariesVisible" : false,
+      "generatedKey" : true,
+      "key" : "Dynamic-002",
+      "order" : 2,
+      "relationships" : [ {
+        "description" : "Manage doctor data using",
+        "id" : "38",
+        "order" : "1",
+        "response" : false
+      }, {
+        "description" : "Make API calls to [JSON/HTTPS]",
+        "id" : "41",
         "order" : "2",
         "response" : false
       }, {
-        "id" : "21",
+        "description" : "Reads from and to [SQL/TCP]",
+        "id" : "45",
         "order" : "3",
         "response" : false
       } ],
-      "title" : "Book"
+      "title" : "Manage Doctor Data"
+    }, {
+      "automaticLayout" : {
+        "applied" : true,
+        "edgeSeparation" : 0,
+        "implementation" : "Graphviz",
+        "nodeSeparation" : 300,
+        "rankDirection" : "LeftRight",
+        "rankSeparation" : 300,
+        "vertices" : false
+      },
+      "dimensions" : {
+        "height" : 841,
+        "width" : 3070
+      },
+      "elementId" : "6",
+      "elements" : [ {
+        "id" : "2",
+        "x" : 199,
+        "y" : 165
+      }, {
+        "id" : "11",
+        "x" : 899,
+        "y" : 215
+      }, {
+        "id" : "15",
+        "x" : 1649,
+        "y" : 215
+      }, {
+        "id" : "20",
+        "x" : 2399,
+        "y" : 215
+      } ],
+      "externalBoundariesVisible" : false,
+      "generatedKey" : true,
+      "key" : "Dynamic-003",
+      "order" : 3,
+      "relationships" : [ {
+        "description" : "Manage master data Faskes using",
+        "id" : "48",
+        "order" : "1",
+        "response" : false
+      }, {
+        "description" : "Make API calls to [JSON/HTTPS]",
+        "id" : "51",
+        "order" : "2",
+        "response" : false
+      }, {
+        "description" : "Reads from and to [SQL/TCP]",
+        "id" : "54",
+        "order" : "3",
+        "response" : false
+      } ],
+      "title" : "Manage Master Data Faskes"
+    }, {
+      "automaticLayout" : {
+        "applied" : true,
+        "edgeSeparation" : 0,
+        "implementation" : "Graphviz",
+        "nodeSeparation" : 300,
+        "rankDirection" : "LeftRight",
+        "rankSeparation" : 300,
+        "vertices" : false
+      },
+      "dimensions" : {
+        "height" : 841,
+        "width" : 3070
+      },
+      "elementId" : "6",
+      "elements" : [ {
+        "id" : "4",
+        "x" : 199,
+        "y" : 165
+      }, {
+        "id" : "8",
+        "x" : 899,
+        "y" : 215
+      }, {
+        "id" : "16",
+        "x" : 1649,
+        "y" : 215
+      }, {
+        "id" : "21",
+        "x" : 2399,
+        "y" : 215
+      } ],
+      "externalBoundariesVisible" : false,
+      "generatedKey" : true,
+      "key" : "Dynamic-004",
+      "order" : 4,
+      "relationships" : [ {
+        "description" : "Provide reservation using",
+        "id" : "57",
+        "order" : "1",
+        "response" : false
+      }, {
+        "description" : "Make API calls to [JSON/HTTPS]",
+        "id" : "60",
+        "order" : "2",
+        "response" : false
+      }, {
+        "description" : "Reads from and to [SQL/TCP]",
+        "id" : "63",
+        "order" : "3",
+        "response" : false
+      } ],
+      "title" : "Provide Reservation"
     } ],
     "systemContextViews" : [ {
       "automaticLayout" : {
@@ -330,20 +1105,46 @@
         "vertices" : false
       },
       "elements" : [ {
+        "id" : "1",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "2",
+        "x" : 0,
+        "y" : 0
+      }, {
         "id" : "3",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "4",
         "x" : 0,
         "y" : 0
       }, {
         "id" : "5",
         "x" : 0,
         "y" : 0
+      }, {
+        "id" : "22",
+        "x" : 0,
+        "y" : 0
       } ],
       "enterpriseBoundaryVisible" : true,
       "generatedKey" : true,
       "key" : "SystemContext-001",
-      "order" : 2,
+      "order" : 5,
       "relationships" : [ {
-        "id" : "16"
+        "id" : "25"
+      }, {
+        "id" : "32"
+      }, {
+        "id" : "33"
+      }, {
+        "id" : "40"
+      }, {
+        "id" : "50"
+      }, {
+        "id" : "59"
       } ],
       "softwareSystemId" : "5"
     } ]

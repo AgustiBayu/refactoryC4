@@ -29,6 +29,27 @@ workspace {
             autolayout lr
         }
 
+        component mobile {
+            include *
+            autolayout tb
+        }
+
+        component web {
+            include *
+            autolayout tb
+        }
+
+        component backend {
+            include *
+            autolayout tb
+        }
+
+        component database {
+            include *
+            autolayout tb
+        }
+
+
         styles {
             element "Element" {
                 color #ffffff
