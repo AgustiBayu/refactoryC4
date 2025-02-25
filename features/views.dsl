@@ -1,2 +1,2 @@
 // Add your views here
-!include book/view.dsl
+!include Book/view.dsl

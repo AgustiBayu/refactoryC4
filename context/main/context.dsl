@@ -11,11 +11,5 @@ mainSystem = softwareSystem "Medpoint system" {
     !include container/backend.dsl
     
     // Database container
-    !include container/database.dsl
-
-    !include container/notifikasi.dsl
-
-    !include container/payment.dsl
-
-    !include container/api.dsl
+    !include container/database.dsl     
 }
